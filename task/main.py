@@ -1,17 +1,25 @@
 from range_ip import generate_ip
 from HTTP_API import http_connect
-from server_code_TCP import server_TCP
+from TCP_server_code import start_server_TCP
 from server_code_UDP import server_UDP
 
 HOST = 'localhost'
 PORT = 8088
 
 def main():
+    """
+    This is the main function which acts as an interactive command line for all the functionalities
+    Args:
+        None
+    Return:
+        None
+    """
     while True:
         print("1 for API to access various services via HTTP")
         print("2 for Server with TCP IP")
         print("3 for Server with UDP IP")
         print("4 for creating a range of IP Addresses")
+        print("6 for")
         inp = int(input())
         if inp == 1:
             url_inp = input("Please provide a url: ")
@@ -33,7 +41,10 @@ def main():
                     params[key]=value
             print(http_connect(url_inp,url_data,url_method,params,100))
         if inp == 2:
-            server_TCP()
+            list_commands = ["ls","chmod","mkdir"]
+            result = start_server_TCP(list_commands)
+            for item in result:
+                print(item)
         if inp == 3:
             server_UDP()
         if inp == 4:

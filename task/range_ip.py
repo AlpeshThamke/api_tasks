@@ -25,5 +25,3 @@ def generate_ip(inp_ip):
 if __name__ == '__main__':
     generate_ip(sys.argv[1])
 
-
-#write tests for this

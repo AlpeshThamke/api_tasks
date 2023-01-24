@@ -17,6 +17,17 @@ class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     pass
 
 def client(ip, port, message):
+    """
+    This function is the client for the TCP Server
+
+    Args:
+        ip: is a value of type string mentioning the ip network
+        port: is number of type int specifying the port number
+        message: is the value of type string mentioning the message/data to be sent to server
+    
+    Return:
+        There is no implicit return, we are saving every response in the returned_data list
+    """
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.connect((ip, port))
         sock.sendall(bytes(message, 'ascii'))
@@ -24,17 +35,22 @@ def client(ip, port, message):
         returned_data.append(response)
 
 def start_server_TCP(list_cmd):
-    # Port 0 means to select an arbitrary unused port
+    """
+    This function starts the TCP Server
+    
+    Args:
+        list_cmd is a list of commands which are to executed by the server, each element must be of type string
+    
+    Return:
+        returns a list of saved responses
+    """
     HOST, PORT = "localhost", 0
 
     server = ThreadedTCPServer((HOST, PORT), ThreadedTCPRequestHandler)
     with server:
         ip, port = server.server_address
 
-        # Start a thread with the server -- that thread will then start one
-        # more thread for each request
         server_thread = threading.Thread(target=server.serve_forever)
-        # Exit the server thread when the main thread terminates
         server_thread.daemon = True
         server_thread.start()
         for cmd in list_cmd:
