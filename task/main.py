@@ -1,5 +1,5 @@
 from range_ip import generate_ip
-from HTTP_API import api_http_connect
+from HTTP_API import http_connect
 from server_code_TCP import server_TCP
 from server_code_UDP import server_UDP
 
@@ -31,7 +31,7 @@ def main():
                         flag = 0
 
                     params[key]=value
-            api_http_connect(url_inp,url_data,url_method,params)
+            print(http_connect(url_inp,url_data,url_method,params,100))
         if inp == 2:
             server_TCP()
         if inp == 3:
