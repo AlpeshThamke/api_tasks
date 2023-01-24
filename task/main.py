@@ -53,7 +53,7 @@ def server_start_UDP():
         server.serve_forever()
 
 
-def fun1():
+def api_http_connect():
     url_inp = input("Please provide a url: ")
     url_data = input("Would you like to send additional data? If yes, type data and if not press enter: ")
     url_method = input("Type the name of method you would like to use else press enter: ")
@@ -104,7 +104,7 @@ def main():
         inp = int(input())
 
         if inp == 1:
-            fun1()
+            api_http_connect()
             
         if inp == 2:
             server_start_TCP()
