@@ -25,6 +25,10 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         self.request.sendall(self.data.upper())
 
 def server_TCP():
+    """
+    This function will start the TCP server using MyTCPHandler as the superclass
+
+    """
     with socketserver.TCPServer((HOST, PORT), MyTCPHandler) as server:
         server.serve_forever()
 
@@ -103,8 +107,8 @@ def generate_ip(inp_ip):
         print("IPv6 network")
     
     print("The range of IP addresses: ")
-    for x in addr.hosts():
-        print(x)
+    for individual_ip in addr.hosts():
+        print(individual_ip)
     
 def main():
     while True:
