@@ -1,3 +1,6 @@
+"""
+This is the main module for interactively using the functionalities
+"""
 from range_ip import generate_ip
 from HTTP_API import http_connect
 from TCP_server_code import start_server_TCP

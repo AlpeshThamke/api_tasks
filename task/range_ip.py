@@ -1,3 +1,6 @@
+"""
+This module is genereating ip addresses for a given CIDR network
+"""
 import ipaddress
 import sys
 

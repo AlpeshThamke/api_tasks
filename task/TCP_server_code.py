@@ -1,4 +1,6 @@
-#This file is for experimentation
+"""
+This module is the TCP Server and the Client as well
+"""
 import sys
 import socket
 import threading

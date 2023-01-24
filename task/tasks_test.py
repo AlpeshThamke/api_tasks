@@ -1,3 +1,6 @@
+"""
+This module is exclusively testing for the unit test of every functionality
+"""
 import unittest
 from range_ip import generate_ip
 from HTTP_API import http_connect
@@ -17,13 +20,13 @@ class range_test(unittest.TestCase):
         This will test if the generate_ip function runs or not
         """
         generate_ip(self._random_CIDR)
-    
+
     def test_network_type(self):
         """
         This will test if the network type is returned correct or not
         """
         self.assertEqual(generate_ip(self._random_CIDR)[0],'IPv4 Network')
-    
+
     def test_ip_count(self):
         """
         This will count the number of IP(s) returned
@@ -43,13 +46,13 @@ class http_connect_test(unittest.TestCase):
         self._method = ''
         self._params = ''
         self._data_size = 100
-    
+
     def test_http_function_runs(self):
         """
         This will check if the api_http_connect function runs or not
         """
         http_connect(self._url,self._data,self._method,self._params,self._data_size)
-    
+
     def test_http_correct_data_size(self):
         """
         This will test if the size of data returned is correct or not
@@ -61,7 +64,7 @@ class http_connect_test(unittest.TestCase):
         This will test if the returned data is decoded or not
         """
         self.assertEqual(type(http_connect(self._url,self._data,self._method,self._params,self._data_size)),type('string'))
-    
+
     def test_http_incorrect_url(self):
         """
         This will test if the function throw exception when incorrect url is provided
@@ -78,7 +81,7 @@ class server_tcp_test(unittest.TestCase):
         Creating a list of commands to test server
         """
         self._list_cmd = ["ls",'chmod','python3','mkdir','vim -y main.py']
-    
+
     def test_server_tcp_runs(self):
         """
         Testing whether start_server function runs or not
@@ -100,7 +103,7 @@ class server_udp_test(unittest.TestCase):
         Creating a command/data to send to server
         """
         self._cmd = "alpesh thamke"
-    
+
     def test_server_udp_runs(self):
         """
         Testing whether start_server function runs or not
@@ -112,7 +115,7 @@ class server_udp_test(unittest.TestCase):
         Test for the correctness of returned data
         """
         self.assertEqual(start_server_UDP(self._cmd),self._cmd.upper())
-    
+
     def test_server_udp_return_size(self):
         """
         Test for the correct size of the returned data
@@ -128,7 +131,7 @@ class xmlrpc_test(unittest.TestCase):
         Setting up the input parameters for the xmlrpc_client function
         """
         self._data = [1,2,3,4,5,10,11]
-    
+
     def test_xmlrpc_client_runs(self):
         """
         Test wether xmlrpc_client function runs or not
@@ -140,7 +143,7 @@ class xmlrpc_test(unittest.TestCase):
         Test wether the returned output size is as expected or not
         """
         self.assertEqual(len(xmlrpc_client(self._data)),len(self._data))
-    
+
     def test_xmlrpc_client_correct_output(self):
         """
         Test for the correctness of the output

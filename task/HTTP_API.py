@@ -1,3 +1,6 @@
+"""
+This module is used for making HTTP request with the intended network
+"""
 import sys
 import urllib.request
 import urllib.parse

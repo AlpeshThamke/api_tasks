@@ -1,3 +1,6 @@
+"""
+This module is the xmlrpc client
+"""
 import xmlrpc.client
 
 def xmlrpc_client(data):

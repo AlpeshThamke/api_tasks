@@ -1,3 +1,6 @@
+"""
+This module is the UDP Server
+"""
 import socketserver
 
 HOST = 'localhost'

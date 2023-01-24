@@ -1,3 +1,6 @@
+"""
+This module is the xmlrpc server
+"""
 from xmlrpc.server import SimpleXMLRPCServer
 
 def fib(n):
