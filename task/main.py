@@ -1,12 +1,9 @@
-#This file contains the python code for tasks assigned
-
 import urllib.request
 import urllib.parse
 import urllib.error
-import socket
-import sys
+import socketserver
+import ipaddress
 
-from server_code import *
 
 HOST = 'localhost'
 PORT = 8088
@@ -27,7 +24,7 @@ class MyTCPHandler(socketserver.BaseRequestHandler):
         print(self.data)
         self.request.sendall(self.data.upper())
 
-def server_start_TCP():
+def server_TCP():
     with socketserver.TCPServer((HOST, PORT), MyTCPHandler) as server:
         server.serve_forever()
 
@@ -48,7 +45,7 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
         print(data)
         socket.sendto(data.upper(), self.client_address)
 
-def server_start_UDP():
+def server_UDP():
     with socketserver.UDPServer((HOST,PORT),MyUDPHandler) as server:
         server.serve_forever()
 
@@ -96,23 +93,39 @@ def api_http_connect():
     except OSError as e:
         print(str(e))
 
+def generate_ip(inp_ip):
+
+    addr = ipaddress.ip_network(inp_ip,strict=False)
+
+    if addr.version == 4:
+        print("IPv4 network")
+    else:
+        print("IPv6 network")
+    
+    print("The range of IP addresses: ")
+    for x in addr.hosts():
+        print(x)
+    
 def main():
     while True:
         print("1 for API to access various services via HTTP")
         print("2 for Server with TCP IP")
         print("3 for Server with UDP IP")
+        print("4 for creating a range of IP Addresses")
         inp = int(input())
 
         if inp == 1:
             api_http_connect()
             
         if inp == 2:
-            server_start_TCP()
+            server_TCP()
 
         if inp == 3:
-            server_start_UDP()
+            server_UDP()
         
-
+        if inp == 4:
+            inp_ip = input("Enter CIDR network: ")
+            generate_ip(inp_ip)
 
 
 
