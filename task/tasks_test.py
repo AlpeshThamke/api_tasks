@@ -1,10 +1,10 @@
 import unittest
 from range_ip import generate_ip
 from HTTP_API import http_connect
-from server_code_TCP import server_TCP,server_TCP_shutdown
 from client_TCP import start_client
 from TCP_server_code import start_server_TCP
 from client_UDP import start_server_UDP
+from xmlrpc_client_code import xmlrpc_client
 
 class range_test(unittest.TestCase):
     """
@@ -120,6 +120,33 @@ class server_udp_test(unittest.TestCase):
         """
         self.assertEqual(len(start_server_UDP(self._cmd)),len(self._cmd))
 
+class xmlrpc_test(unittest.TestCase):
+    """
+    Tests for running python program on remote server
+    """
+    def setUp(self):
+        """
+        Setting up the input parameters for the xmlrpc_client function
+        """
+        self._data = [1,2,3,4,5,10,11]
+    
+    def test_xmlrpc_client_runs(self):
+        """
+        Test wether xmlrpc_client function runs or not
+        """
+        xmlrpc_client(self._data)
+
+    def test_xmlrpc_client_output_size(self):
+        """
+        Test wether the returned output size is as expected or not
+        """
+        self.assertEqual(len(xmlrpc_client(self._data)),len(self._data))
+    
+    def test_xmlrpc_client_correct_output(self):
+        """
+        Test for the correctness of the output
+        """
+        self.assertEqual(xmlrpc_client(self._data)[6],'11 number in Fibonacci Series: 89')
 
 if __name__ == '__main__':
     unittest.main()
