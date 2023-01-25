@@ -1,10 +1,10 @@
 """
 This is the main module for interactively using the functionalities
 """
-from range_ip import generate_ip
-from http_api import http_connect
-from tcp_server_code import start_server_TCP
-from udp_server_code import server_UDP
+from .ip_generator import generate_ip
+from .http_api import http_connect
+from .tcp_server_code import start_server_TCP
+from .udp_server_code import server_UDP
 
 # HOST = 'localhost'
 # PORT = 8088
