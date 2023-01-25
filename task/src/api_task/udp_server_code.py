@@ -23,7 +23,8 @@ class MyUDPHandler(socketserver.BaseRequestHandler):
 
 def server_UDP():
     """
-    This function starts the UDP Server and it should be started from a different terminal for tests to run successfully
+    This function starts the UDP Server and it should be started 
+    from a different terminal for tests to run successfully
     """
     with socketserver.UDPServer((HOST,PORT),MyUDPHandler) as server:
         server.serve_forever()

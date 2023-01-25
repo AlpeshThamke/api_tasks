@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>task.udp_client &mdash; API Connections, Servers and Clients 1.0.0 documentation</title>
+  <title>api_task.ip_generator &mdash; API_Task 0.0.1 documentation</title>
   
 
   
@@ -53,7 +53,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> API Connections, Servers and Clients
+            <a href="../../index.html" class="icon icon-home"> API_Task
           
 
           
@@ -86,7 +86,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../task.html">task package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_task.html">api_task package</a></li>
 </ul>
 
             
@@ -102,7 +102,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">API Connections, Servers and Clients</a>
+          <a href="../../index.html">API_Task</a>
         
       </nav>
 
@@ -137,7 +137,7 @@
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
-      <li>task.udp_client</li>
+      <li>api_task.ip_generator</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -152,38 +152,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for task.udp_client</h1><div class="highlight"><pre>
+  <h1>Source code for api_task.ip_generator</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">This module is the client for the UDP Server</span>
+<span class="sd">This module is genereating ip addresses for a given CIDR network</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">ipaddress</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-
-<span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">8088</span>
-<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-
-<div class="viewcode-block" id="start_server_UDP"><a class="viewcode-back" href="../../task.html#task.udp_client.start_server_UDP">[docs]</a><span class="k">def</span> <span class="nf">start_server_UDP</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class="viewcode-block" id="generate_ip"><a class="viewcode-back" href="../../api_task.html#api_task.ip_generator.generate_ip">[docs]</a><span class="k">def</span> <span class="nf">generate_ip</span><span class="p">(</span><span class="n">inp_ip</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function acts as the client for UDP Server</span>
+<span class="sd">    This function will take input of the CIDR network </span>
+<span class="sd">    and return list of range of IP addresses</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        data is value of type string which is to be executed on the server</span>
+<span class="sd">    Args</span>
+<span class="sd">        It takes input of CIDR network of the form String</span>
 <span class="sd">    </span>
-<span class="sd">    Return:</span>
-<span class="sd">        This function recieves the data and returns the recieved data</span>
+<span class="sd">    Return</span>
+<span class="sd">        It returns a tuple which consists of </span>
+<span class="sd">        the type of network and a list of IP addresses</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
-
-    <span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
-    <span class="n">received</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-    
-    <span class="c1"># print(&quot;Sent:     {}&quot;.format(data))</span>
-    <span class="c1"># print(&quot;Received: {}&quot;.format(received))</span>
-    <span class="k">return</span> <span class="n">received</span></div>
+    <span class="n">addr</span> <span class="o">=</span> <span class="n">ipaddress</span><span class="o">.</span><span class="n">ip_network</span><span class="p">(</span><span class="n">inp_ip</span><span class="p">,</span><span class="n">strict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">network_type</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">addr</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">network_type</span> <span class="o">=</span> <span class="s2">&quot;IPv4 Network&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">network_type</span> <span class="o">=</span> <span class="s2">&quot;IPv6 network&quot;</span>
+    <span class="n">ip_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">individual_ip</span> <span class="ow">in</span> <span class="n">addr</span><span class="o">.</span><span class="n">hosts</span><span class="p">():</span>
+        <span class="n">ip_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">individual_ip</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">network_type</span><span class="p">,</span><span class="n">ip_list</span></div>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">start_server_UDP</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">generate_ip</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
 </pre></div>
 
            </div>

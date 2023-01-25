@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>task.udp_server_code &mdash; API Connections, Servers and Clients 1.0.0 documentation</title>
+  <title>api_task.xmlrpc_server_code &mdash; API_Task 0.0.1 documentation</title>
   
 
   
@@ -53,7 +53,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> API Connections, Servers and Clients
+            <a href="../../index.html" class="icon icon-home"> API_Task
           
 
           
@@ -86,7 +86,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../task.html">task package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_task.html">api_task package</a></li>
 </ul>
 
             
@@ -102,7 +102,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">API Connections, Servers and Clients</a>
+          <a href="../../index.html">API_Task</a>
         
       </nav>
 
@@ -137,7 +137,7 @@
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
-      <li>task.udp_server_code</li>
+      <li>api_task.xmlrpc_server_code</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -152,39 +152,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for task.udp_server_code</h1><div class="highlight"><pre>
+  <h1>Source code for api_task.xmlrpc_server_code</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">This module is the UDP Server</span>
+<span class="sd">This module is the xmlrpc server</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">socketserver</span>
+<span class="kn">from</span> <span class="nn">xmlrpc.server</span> <span class="kn">import</span> <span class="n">SimpleXMLRPCServer</span>
 
-<span class="n">HOST</span> <span class="o">=</span> <span class="s1">&#39;localhost&#39;</span>
-<span class="n">PORT</span> <span class="o">=</span> <span class="mi">8088</span>
-
-<div class="viewcode-block" id="MyUDPHandler"><a class="viewcode-back" href="../../task.html#task.udp_server_code.MyUDPHandler">[docs]</a><span class="k">class</span> <span class="nc">MyUDPHandler</span><span class="p">(</span><span class="n">socketserver</span><span class="o">.</span><span class="n">BaseRequestHandler</span><span class="p">):</span>
+<div class="viewcode-block" id="fib"><a class="viewcode-back" href="../../api_task.html#api_task.xmlrpc_server_code.fib">[docs]</a><span class="k">def</span> <span class="nf">fib</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This class works similar to the TCP handler class, except that</span>
-<span class="sd">    self.request consists of a pair of data and client socket, and since</span>
-<span class="sd">    there is no connection the client address must be given explicitly</span>
-<span class="sd">    when sending data back via sendto().</span>
+<span class="sd">    This is a fibonacci series function</span>
+
+<span class="sd">    Args</span>
+<span class="sd">        n is a value of type int</span>
+<span class="sd">    Return</span>
+<span class="sd">        the function returns the (n)th number of the Fibonacci Series</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">==</span><span class="mi">1</span> <span class="ow">or</span> <span class="n">n</span><span class="o">==</span><span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">fib</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="MyUDPHandler.handle"><a class="viewcode-back" href="../../task.html#task.udp_server_code.MyUDPHandler.handle">[docs]</a>    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="n">socket</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> wrote:&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">client_address</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-        <span class="n">socket</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">upper</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">client_address</span><span class="p">)</span></div></div>
-
-<div class="viewcode-block" id="server_UDP"><a class="viewcode-back" href="../../task.html#task.udp_server_code.server_UDP">[docs]</a><span class="k">def</span> <span class="nf">server_UDP</span><span class="p">():</span>
+<div class="viewcode-block" id="xmlrpc_server"><a class="viewcode-back" href="../../api_task.html#api_task.xmlrpc_server_code.xmlrpc_server">[docs]</a><span class="k">def</span> <span class="nf">xmlrpc_server</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function starts the UDP Server and it should be started from a different terminal for tests to run successfully</span>
+<span class="sd">    This function act as the server for xmlrpc_server to </span>
+<span class="sd">    execute Fibonacci Program from a remote client server</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="n">socketserver</span><span class="o">.</span><span class="n">UDPServer</span><span class="p">((</span><span class="n">HOST</span><span class="p">,</span><span class="n">PORT</span><span class="p">),</span><span class="n">MyUDPHandler</span><span class="p">)</span> <span class="k">as</span> <span class="n">server</span><span class="p">:</span>
-        <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span></div>
+    <span class="n">server</span> <span class="o">=</span> <span class="n">SimpleXMLRPCServer</span><span class="p">((</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Listening on port 8000...&quot;</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">register_function</span><span class="p">(</span><span class="n">fib</span><span class="p">,</span> <span class="s2">&quot;fib&quot;</span><span class="p">)</span>
+    <span class="n">server</span><span class="o">.</span><span class="n">serve_forever</span><span class="p">()</span></div>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">server_UDP</span><span class="p">()</span>
+    <span class="n">xmlrpc_server</span><span class="p">()</span>
 </pre></div>
 
            </div>

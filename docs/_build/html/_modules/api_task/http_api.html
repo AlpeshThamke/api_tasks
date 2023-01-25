@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>task.http_api &mdash; API Connections, Servers and Clients 1.0.0 documentation</title>
+  <title>api_task.http_api &mdash; API_Task 0.0.1 documentation</title>
   
 
   
@@ -53,7 +53,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> API Connections, Servers and Clients
+            <a href="../../index.html" class="icon icon-home"> API_Task
           
 
           
@@ -86,7 +86,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../task.html">task package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_task.html">api_task package</a></li>
 </ul>
 
             
@@ -102,7 +102,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">API Connections, Servers and Clients</a>
+          <a href="../../index.html">API_Task</a>
         
       </nav>
 
@@ -137,7 +137,7 @@
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
-      <li>task.http_api</li>
+      <li>api_task.http_api</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -152,7 +152,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for task.http_api</h1><div class="highlight"><pre>
+  <h1>Source code for api_task.http_api</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This module is used for making HTTP request with the intended network</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -161,18 +161,18 @@
 <span class="kn">import</span> <span class="nn">urllib.parse</span>
 <span class="kn">import</span> <span class="nn">urllib.error</span>
 
-<div class="viewcode-block" id="http_connect"><a class="viewcode-back" href="../../task.html#task.http_api.http_connect">[docs]</a><span class="k">def</span> <span class="nf">http_connect</span><span class="p">(</span><span class="n">url_inp</span><span class="p">,</span><span class="n">url_data</span><span class="p">,</span><span class="n">url_method</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">data_size</span><span class="p">):</span>
+<div class="viewcode-block" id="http_connect"><a class="viewcode-back" href="../../api_task.html#api_task.http_api.http_connect">[docs]</a><span class="k">def</span> <span class="nf">http_connect</span><span class="p">(</span><span class="n">url_inp</span><span class="p">,</span><span class="n">url_data</span><span class="p">,</span><span class="n">url_method</span><span class="p">,</span><span class="n">params</span><span class="p">,</span><span class="n">data_size</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function makes a http connection with the intended network</span>
 
-<span class="sd">    Args:</span>
+<span class="sd">    Args</span>
 <span class="sd">        url_inp: is a value of type string which specifies the url to have HTTP connection with</span>
 <span class="sd">        url_data: can be a string or dictionary specifying additional data for the connection</span>
 <span class="sd">        url_method: this specifies the connection method </span>
 <span class="sd">        params: this is of type dict and specifies additional paramaters</span>
 <span class="sd">        data_size: this is of type int mentioning the size of data to be read </span>
 <span class="sd">    </span>
-<span class="sd">    Return:</span>
+<span class="sd">    Return</span>
 <span class="sd">        it returns a string which is the response for the request made to intended url</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 

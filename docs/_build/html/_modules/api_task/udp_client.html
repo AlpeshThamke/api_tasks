@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>task.xmlrpc_client_code &mdash; API Connections, Servers and Clients 1.0.0 documentation</title>
+  <title>api_task.udp_client &mdash; API_Task 0.0.1 documentation</title>
   
 
   
@@ -53,7 +53,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> API Connections, Servers and Clients
+            <a href="../../index.html" class="icon icon-home"> API_Task
           
 
           
@@ -86,7 +86,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../task.html">task package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_task.html">api_task package</a></li>
 </ul>
 
             
@@ -102,7 +102,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">API Connections, Servers and Clients</a>
+          <a href="../../index.html">API_Task</a>
         
       </nav>
 
@@ -137,7 +137,7 @@
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
-      <li>task.xmlrpc_client_code</li>
+      <li>api_task.udp_client</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -152,31 +152,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for task.xmlrpc_client_code</h1><div class="highlight"><pre>
+  <h1>Source code for api_task.udp_client</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">This module is the xmlrpc client</span>
+<span class="sd">This module is the client for the UDP Server</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">xmlrpc.client</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 
-<div class="viewcode-block" id="xmlrpc_client"><a class="viewcode-back" href="../../task.html#task.xmlrpc_client_code.xmlrpc_client">[docs]</a><span class="k">def</span> <span class="nf">xmlrpc_client</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+
+<span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span> <span class="o">=</span> <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">8088</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+<div class="viewcode-block" id="start_server_UDP"><a class="viewcode-back" href="../../api_task.html#api_task.udp_client.start_server_UDP">[docs]</a><span class="k">def</span> <span class="nf">start_server_UDP</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    This function acts as the client for xmlrpc server</span>
+<span class="sd">    This function acts as the client for UDP Server</span>
 
-<span class="sd">    Args:</span>
-<span class="sd">        data is a list of elements each of type int who&#39;s fibonacci number are to be calculated</span>
+<span class="sd">    Args</span>
+<span class="sd">        data is value of type string which </span>
+<span class="sd">        is to be executed on the server</span>
 <span class="sd">    </span>
-<span class="sd">    Return:</span>
-<span class="sd">        function returns a list of string with Fibonacci Number for each element in the Args</span>
+<span class="sd">    Return</span>
+<span class="sd">        This function recieves the data and </span>
+<span class="sd">        returns the recieved data</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">with</span> <span class="n">xmlrpc</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">ServerProxy</span><span class="p">(</span><span class="s2">&quot;http://localhost:8000/&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">proxy</span><span class="p">:</span>
-        <span class="k">for</span> <span class="n">items</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-            <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> number in Fibonacci Series: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">items</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">proxy</span><span class="o">.</span><span class="n">fib</span><span class="p">(</span><span class="n">items</span><span class="p">))))</span>
-        <span class="k">return</span> <span class="n">res</span></div>
+    <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+
+    <span class="n">sock</span><span class="o">.</span><span class="n">sendto</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">data</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">),</span> <span class="p">(</span><span class="n">HOST</span><span class="p">,</span> <span class="n">PORT</span><span class="p">))</span>
+    <span class="n">received</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+    
+    <span class="c1"># print(&quot;Sent:     {}&quot;.format(data))</span>
+    <span class="c1"># print(&quot;Received: {}&quot;.format(received))</span>
+    <span class="k">return</span> <span class="n">received</span></div>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">xmlrpc_client</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">start_server_UDP</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 
            </div>

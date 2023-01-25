@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>task.tcp_server_code &mdash; API Connections, Servers and Clients 1.0.0 documentation</title>
+  <title>api_task.tcp_server_code &mdash; API_Task 0.0.1 documentation</title>
   
 
   
@@ -53,7 +53,7 @@
           
 
           
-            <a href="../../index.html" class="icon icon-home"> API Connections, Servers and Clients
+            <a href="../../index.html" class="icon icon-home"> API_Task
           
 
           
@@ -86,7 +86,7 @@
             
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../task.html">task package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_task.html">api_task package</a></li>
 </ul>
 
             
@@ -102,7 +102,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">API Connections, Servers and Clients</a>
+          <a href="../../index.html">API_Task</a>
         
       </nav>
 
@@ -137,7 +137,7 @@
         
           <li><a href="../index.html">Module code</a> &raquo;</li>
         
-      <li>task.tcp_server_code</li>
+      <li>api_task.tcp_server_code</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -152,7 +152,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for task.tcp_server_code</h1><div class="highlight"><pre>
+  <h1>Source code for api_task.tcp_server_code</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">This module is the TCP Server and the Client as well</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -162,28 +162,29 @@
 <span class="kn">import</span> <span class="nn">socketserver</span>
 <span class="n">returned_data</span> <span class="o">=</span> <span class="p">[]</span>
 
-<div class="viewcode-block" id="ThreadedTCPRequestHandler"><a class="viewcode-back" href="../../task.html#task.tcp_server_code.ThreadedTCPRequestHandler">[docs]</a><span class="k">class</span> <span class="nc">ThreadedTCPRequestHandler</span><span class="p">(</span><span class="n">socketserver</span><span class="o">.</span><span class="n">BaseRequestHandler</span><span class="p">):</span>
+<div class="viewcode-block" id="ThreadedTCPRequestHandler"><a class="viewcode-back" href="../../api_task.html#api_task.tcp_server_code.ThreadedTCPRequestHandler">[docs]</a><span class="k">class</span> <span class="nc">ThreadedTCPRequestHandler</span><span class="p">(</span><span class="n">socketserver</span><span class="o">.</span><span class="n">BaseRequestHandler</span><span class="p">):</span>
 
-<div class="viewcode-block" id="ThreadedTCPRequestHandler.handle"><a class="viewcode-back" href="../../task.html#task.tcp_server_code.ThreadedTCPRequestHandler.handle">[docs]</a>    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="ThreadedTCPRequestHandler.handle"><a class="viewcode-back" href="../../api_task.html#api_task.tcp_server_code.ThreadedTCPRequestHandler.handle">[docs]</a>    <span class="k">def</span> <span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> <span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
         <span class="n">cur_thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">current_thread</span><span class="p">()</span>
         <span class="n">response</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cur_thread</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="p">),</span> <span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">response</span><span class="p">)</span></div></div>
 
-<div class="viewcode-block" id="ThreadedTCPServer"><a class="viewcode-back" href="../../task.html#task.tcp_server_code.ThreadedTCPServer">[docs]</a><span class="k">class</span> <span class="nc">ThreadedTCPServer</span><span class="p">(</span><span class="n">socketserver</span><span class="o">.</span><span class="n">ThreadingMixIn</span><span class="p">,</span> <span class="n">socketserver</span><span class="o">.</span><span class="n">TCPServer</span><span class="p">):</span>
+<div class="viewcode-block" id="ThreadedTCPServer"><a class="viewcode-back" href="../../api_task.html#api_task.tcp_server_code.ThreadedTCPServer">[docs]</a><span class="k">class</span> <span class="nc">ThreadedTCPServer</span><span class="p">(</span><span class="n">socketserver</span><span class="o">.</span><span class="n">ThreadingMixIn</span><span class="p">,</span> <span class="n">socketserver</span><span class="o">.</span><span class="n">TCPServer</span><span class="p">):</span>
     <span class="k">pass</span></div>
 
-<div class="viewcode-block" id="client"><a class="viewcode-back" href="../../task.html#task.tcp_server_code.client">[docs]</a><span class="k">def</span> <span class="nf">client</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
+<div class="viewcode-block" id="client"><a class="viewcode-back" href="../../api_task.html#api_task.tcp_server_code.client">[docs]</a><span class="k">def</span> <span class="nf">client</span><span class="p">(</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">message</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function is the client for the TCP Server</span>
 
-<span class="sd">    Args:</span>
+<span class="sd">    Args</span>
 <span class="sd">        ip: is a value of type string mentioning the ip network</span>
 <span class="sd">        port: is number of type int specifying the port number</span>
 <span class="sd">        message: is the value of type string mentioning the message/data to be sent to server</span>
 <span class="sd">    </span>
-<span class="sd">    Return:</span>
-<span class="sd">        There is no implicit return, we are saving every response in the returned_data list</span>
+<span class="sd">    Return</span>
+<span class="sd">        There is no implicit return, we are saving </span>
+<span class="sd">        every response in the returned_data list</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">with</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> <span class="k">as</span> <span class="n">sock</span><span class="p">:</span>
         <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="n">ip</span><span class="p">,</span> <span class="n">port</span><span class="p">))</span>
@@ -191,7 +192,7 @@
         <span class="n">response</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">sock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">1024</span><span class="p">),</span> <span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
         <span class="n">returned_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">response</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="start_server_TCP"><a class="viewcode-back" href="../../task.html#task.tcp_server_code.start_server_TCP">[docs]</a><span class="k">def</span> <span class="nf">start_server_TCP</span><span class="p">(</span><span class="n">list_cmd</span><span class="p">):</span>
+<div class="viewcode-block" id="start_server_TCP"><a class="viewcode-back" href="../../api_task.html#api_task.tcp_server_code.start_server_TCP">[docs]</a><span class="k">def</span> <span class="nf">start_server_TCP</span><span class="p">(</span><span class="n">list_cmd</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    This function starts the TCP Server</span>
 <span class="sd">    </span>

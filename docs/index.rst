@@ -1,16 +1,16 @@
-.. API Connections, Servers and Clients documentation master file, created by
-   sphinx-quickstart on Wed Jan 25 10:44:04 2023.
+.. API_Task documentation master file, created by
+   sphinx-quickstart on Wed Jan 25 14:01:49 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to API Connections, Servers and Clients's documentation!
-================================================================
+Welcome to API_Task's documentation!
+====================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   task
+   api_task
 
 Indices and tables
 ==================

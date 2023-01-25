@@ -7,9 +7,9 @@ def fib(n):
     """
     This is a fibonacci series function
 
-    Args:
+    Args
         n is a value of type int
-    Return:
+    Return
         the function returns the (n)th number of the Fibonacci Series
     """
     if n==1 or n==2:
@@ -19,7 +19,8 @@ def fib(n):
 
 def xmlrpc_server():
     """
-    This function act as the server for xmlrpc_server to execute Fibonacci Program from a remote client server
+    This function act as the server for xmlrpc_server to 
+    execute Fibonacci Program from a remote client server
     """
     server = SimpleXMLRPCServer(("localhost", 8000))
     print("Listening on port 8000...")

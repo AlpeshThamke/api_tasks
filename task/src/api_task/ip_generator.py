@@ -6,13 +6,15 @@ import sys
 
 def generate_ip(inp_ip):
     """
-    This function will take input of the CIDR network and return list of range of IP addresses
+    This function will take input of the CIDR network 
+    and return list of range of IP addresses
 
-    Args:
+    Args
         It takes input of CIDR network of the form String
     
-    Return:
-        It returns a tuple which consists of the type of network and a list of IP addresses
+    Return
+        It returns a tuple which consists of 
+        the type of network and a list of IP addresses
     """
     addr = ipaddress.ip_network(inp_ip,strict=False)
     network_type = ""

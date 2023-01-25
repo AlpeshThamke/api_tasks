@@ -22,13 +22,14 @@ def client(ip, port, message):
     """
     This function is the client for the TCP Server
 
-    Args:
+    Args
         ip: is a value of type string mentioning the ip network
         port: is number of type int specifying the port number
         message: is the value of type string mentioning the message/data to be sent to server
     
-    Return:
-        There is no implicit return, we are saving every response in the returned_data list
+    Return
+        There is no implicit return, we are saving 
+        every response in the returned_data list
     """
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         sock.connect((ip, port))

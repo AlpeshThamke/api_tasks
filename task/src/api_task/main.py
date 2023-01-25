@@ -11,10 +11,11 @@ from .udp_server_code import server_UDP
 
 def main():
     """
-    This is the main function which acts as an interactive command line for all the functionalities
-    Args:
+    This is the main function which acts as an interactive 
+    command line for all the functionalities
+    Args
         None
-    Return:
+    Return
         None
     """
 

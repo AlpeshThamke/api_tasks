@@ -12,11 +12,13 @@ def start_server_UDP(data):
     """
     This function acts as the client for UDP Server
 
-    Args:
-        data is value of type string which is to be executed on the server
+    Args
+        data is value of type string which 
+        is to be executed on the server
     
-    Return:
-        This function recieves the data and returns the recieved data
+    Return
+        This function recieves the data and 
+        returns the recieved data
     """
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 

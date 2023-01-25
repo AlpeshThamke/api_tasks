@@ -10,14 +10,14 @@ def http_connect(url_inp,url_data,url_method,params,data_size):
     """
     This function makes a http connection with the intended network
 
-    Args:
+    Args
         url_inp: is a value of type string which specifies the url to have HTTP connection with
         url_data: can be a string or dictionary specifying additional data for the connection
         url_method: this specifies the connection method 
         params: this is of type dict and specifies additional paramaters
         data_size: this is of type int mentioning the size of data to be read 
     
-    Return:
+    Return
         it returns a string which is the response for the request made to intended url
     """
 
