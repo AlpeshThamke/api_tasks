@@ -23,8 +23,8 @@ def start_server_UDP(data):
     sock.sendto(bytes(data + "\n", "utf-8"), (HOST, PORT))
     received = str(sock.recv(1024), "utf-8")
     
-    print("Sent:     {}".format(data))
-    print("Received: {}".format(received))
+    # print("Sent:     {}".format(data))
+    # print("Received: {}".format(received))
     return received
 
 if __name__ == '__main__':

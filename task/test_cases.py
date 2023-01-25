@@ -3,9 +3,9 @@ This module is exclusively testing for the unit test of every functionality
 """
 import unittest
 from range_ip import generate_ip
-from HTTP_API import http_connect
-from TCP_server_code import start_server_TCP
-from client_UDP import start_server_UDP
+from http_api import http_connect
+from tcp_server_code import start_server_TCP
+from udp_client import start_server_UDP
 from xmlrpc_client_code import xmlrpc_client
 
 class range_test(unittest.TestCase):

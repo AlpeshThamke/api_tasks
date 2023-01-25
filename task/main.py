@@ -2,12 +2,12 @@
 This is the main module for interactively using the functionalities
 """
 from range_ip import generate_ip
-from HTTP_API import http_connect
-from TCP_server_code import start_server_TCP
-from server_code_UDP import server_UDP
+from http_api import http_connect
+from tcp_server_code import start_server_TCP
+from udp_server_code import server_UDP
 
-HOST = 'localhost'
-PORT = 8088
+# HOST = 'localhost'
+# PORT = 8088
 
 def main():
     """
@@ -17,12 +17,13 @@ def main():
     Return:
         None
     """
+
     while True:
         print("1 for API to access various services via HTTP")
         print("2 for Server with TCP IP")
         print("3 for Server with UDP IP")
         print("4 for creating a range of IP Addresses")
-        print("6 for")
+
         inp = int(input())
         if inp == 1:
             url_inp = input("Please provide a url: ")
