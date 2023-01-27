@@ -10,14 +10,14 @@ def http_connect(url_inp,url_data,url_method,params,data_size):
     """
     This function makes a http connection with the intended network
 
-    Args
+    Args:
         url_inp: is a value of type string which specifies the url to have HTTP connection with
         url_data: can be a string or dictionary specifying additional data for the connection
-        url_method: this specifies the connection method 
+        url_method: this specifies the connection method
         params: this is of type dict and specifies additional paramaters
-        data_size: this is of type int mentioning the size of data to be read 
-    
-    Return
+        data_size: this is of type int mentioning the size of data to be read
+
+    Returns:
         it returns a string which is the response for the request made to intended url
     """
 
@@ -40,8 +40,8 @@ def http_connect(url_inp,url_data,url_method,params,data_size):
         with urllib.request.urlopen(req) as f:
             return f.read(data_size).decode('utf-8')
 
-    except OSError as e:
-        print(str(e))
+    except OSError:
+        raise OSError
 
 
 if __name__ == '__main__':

@@ -1,19 +1,18 @@
-"""
-This module is the xmlrpc client
+"""This module is the xmlrpc client
 """
 import xmlrpc.client
 
 def xmlrpc_client(data):
     """
-    This function acts as the client 
+    This function acts as the client
     for xmlrpc server
 
-    Args
-        data is a list of elements each of type int who's fibonacci number 
-        are to be calculated
-    
-    Return
-        function returns a list of string with Fibonacci Number for 
+    Args:
+        data is a list of elements each of type int who's fibonacci
+        number are to be calculated
+
+    Returns:
+        function returns a list of string with Fibonacci Number for
         each element in the Args
     """
     res = []

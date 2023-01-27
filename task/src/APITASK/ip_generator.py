@@ -1,19 +1,17 @@
-"""
-This module is genereating ip addresses for a given CIDR network
+"""This module is genereating ip addresses for a given CIDR network
 """
 import ipaddress
 import sys
 
 def generate_ip(inp_ip):
-    """
-    This function will take input of the CIDR network 
+    """This function will take input of the CIDR network
     and return list of range of IP addresses
 
-    Args
+    Args:
         It takes input of CIDR network of the form String
-    
-    Return
-        It returns a tuple which consists of 
+
+    Return:
+        It returns a tuple which consists of
         the type of network and a list of IP addresses
     """
     addr = ipaddress.ip_network(inp_ip,strict=False)
@@ -29,4 +27,3 @@ def generate_ip(inp_ip):
 
 if __name__ == '__main__':
     generate_ip(sys.argv[1])
-
