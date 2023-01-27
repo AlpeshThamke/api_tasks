@@ -5,11 +5,11 @@ import unittest
 import sys
 sys.path.append("../")
 
-from src.APITASK.ip_generator import generate_ip
-from src.APITASK.http_api import http_connect
-from src.APITASK.tcp_server_code import start_server_tcp
-from src.APITASK.udp_client import start_server_udp
-from src.APITASK.xmlrpc_client_code import xmlrpc_client
+from src.apitask.ip_generator import generate_ip
+from src.apitask.http_api import http_connect
+from src.apitask.tcp_server_code import start_server_tcp
+from src.apitask.udp_client import start_server_udp
+from src.apitask.xmlrpc_client_code import xmlrpc_client
 
 class RangeTest(unittest.TestCase):
     """Tests for generate_ip function
