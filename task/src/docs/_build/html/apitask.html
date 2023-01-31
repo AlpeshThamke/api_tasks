@@ -1,0 +1,483 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>apitask package &mdash; API Functions 0.0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Welcome to API Functions’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> API Functions
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">apitask package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apitask.http_api">apitask.http_api module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.http_api.http_connect"><code class="docutils literal notranslate"><span class="pre">http_connect()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apitask.ip_generator">apitask.ip_generator module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.ip_generator.generate_ip"><code class="docutils literal notranslate"><span class="pre">generate_ip()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apitask.main">apitask.main module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.main.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apitask.tcp_server_code">apitask.tcp_server_code module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.tcp_server_code.ThreadedTCPRequestHandler"><code class="docutils literal notranslate"><span class="pre">ThreadedTCPRequestHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#apitask.tcp_server_code.ThreadedTCPRequestHandler.handle"><code class="docutils literal notranslate"><span class="pre">ThreadedTCPRequestHandler.handle()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.tcp_server_code.ThreadedTCPServer"><code class="docutils literal notranslate"><span class="pre">ThreadedTCPServer</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.tcp_server_code.client"><code class="docutils literal notranslate"><span class="pre">client()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.tcp_server_code.start_server_tcp"><code class="docutils literal notranslate"><span class="pre">start_server_tcp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apitask.udp_client">apitask.udp_client module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.udp_client.start_server_udp"><code class="docutils literal notranslate"><span class="pre">start_server_udp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apitask.udp_server_code">apitask.udp_server_code module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.udp_server_code.MyUDPHandler"><code class="docutils literal notranslate"><span class="pre">MyUDPHandler</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#apitask.udp_server_code.MyUDPHandler.handle"><code class="docutils literal notranslate"><span class="pre">MyUDPHandler.handle()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.udp_server_code.server_udp"><code class="docutils literal notranslate"><span class="pre">server_udp()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apitask.xmlrpc_client_code">apitask.xmlrpc_client_code module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.xmlrpc_client_code.xmlrpc_client"><code class="docutils literal notranslate"><span class="pre">xmlrpc_client()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apitask.xmlrpc_server_code">apitask.xmlrpc_server_code module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.xmlrpc_server_code.fib"><code class="docutils literal notranslate"><span class="pre">fib()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apitask.xmlrpc_server_code.xmlrpc_server"><code class="docutils literal notranslate"><span class="pre">xmlrpc_server()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-apitask">Module contents</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">API Functions</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>apitask package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/apitask.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <section id="apitask-package">
+<h1>apitask package<a class="headerlink" href="#apitask-package" title="Permalink to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="module-apitask.http_api">
+<span id="apitask-http-api-module"></span><h2>apitask.http_api module<a class="headerlink" href="#module-apitask.http_api" title="Permalink to this heading">¶</a></h2>
+<p>This module is used for making HTTP request with the intended network</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="apitask.http_api.http_connect">
+<span class="sig-prename descclassname"><span class="pre">apitask.http_api.</span></span><span class="sig-name descname"><span class="pre">http_connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url_inp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url_method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_size</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/http_api.html#http_connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.http_api.http_connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function makes a http connection with the intended network</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url_inp</strong> – is a value of type string which specifies the url to have HTTP connection with</p></li>
+<li><p><strong>url_data</strong> – can be a string or dictionary specifying additional data for the connection</p></li>
+<li><p><strong>url_method</strong> – this specifies the connection method</p></li>
+<li><p><strong>params</strong> – this is of type dict and specifies additional paramaters</p></li>
+<li><p><strong>data_size</strong> – this is of type int mentioning the size of data to be read</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>it returns a string which is the response for the request made to intended url</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-apitask.ip_generator">
+<span id="apitask-ip-generator-module"></span><h2>apitask.ip_generator module<a class="headerlink" href="#module-apitask.ip_generator" title="Permalink to this heading">¶</a></h2>
+<p>This module is genereating ip addresses for a given CIDR network</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="apitask.ip_generator.generate_ip">
+<span class="sig-prename descclassname"><span class="pre">apitask.ip_generator.</span></span><span class="sig-name descname"><span class="pre">generate_ip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">inp_ip</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/ip_generator.html#generate_ip"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.ip_generator.generate_ip" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will take input of the CIDR network
+and return list of range of IP addresses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>String</strong> (<em>It takes input</em><em> of </em><em>CIDR network</em><em> of </em><em>the form</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>It returns a tuple which consists of
+the type of network and a list of IP addresses</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-apitask.main">
+<span id="apitask-main-module"></span><h2>apitask.main module<a class="headerlink" href="#module-apitask.main" title="Permalink to this heading">¶</a></h2>
+<p>This is the main module for interactively using the functionalities</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="apitask.main.main">
+<span class="sig-prename descclassname"><span class="pre">apitask.main.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/main.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.main.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the main function which acts as an interactive
+command line for all the functionalities</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-apitask.tcp_server_code">
+<span id="apitask-tcp-server-code-module"></span><h2>apitask.tcp_server_code module<a class="headerlink" href="#module-apitask.tcp_server_code" title="Permalink to this heading">¶</a></h2>
+<p>This module is the TCP Server and the Client as well</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="apitask.tcp_server_code.ThreadedTCPRequestHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">apitask.tcp_server_code.</span></span><span class="sig-name descname"><span class="pre">ThreadedTCPRequestHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/tcp_server_code.html#ThreadedTCPRequestHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.tcp_server_code.ThreadedTCPRequestHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseRequestHandler</span></code></p>
+<p>A Threaded TCP Request Handler Class</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="apitask.tcp_server_code.ThreadedTCPRequestHandler.handle">
+<span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/tcp_server_code.html#ThreadedTCPRequestHandler.handle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.tcp_server_code.ThreadedTCPRequestHandler.handle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle Method for Request Handler Class</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="apitask.tcp_server_code.ThreadedTCPServer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">apitask.tcp_server_code.</span></span><span class="sig-name descname"><span class="pre">ThreadedTCPServer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RequestHandlerClass</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bind_and_activate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/tcp_server_code.html#ThreadedTCPServer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.tcp_server_code.ThreadedTCPServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ThreadingMixIn</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">TCPServer</span></code></p>
+<p>A Threaded TCP Server Class</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="apitask.tcp_server_code.client">
+<span class="sig-prename descclassname"><span class="pre">apitask.tcp_server_code.</span></span><span class="sig-name descname"><span class="pre">client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ip_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/tcp_server_code.html#client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.tcp_server_code.client" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is the client for the TCP Server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ip</strong> – is a value of type string mentioning the ip network</p></li>
+<li><p><strong>port</strong> – is number of type int specifying the port number</p></li>
+<li><p><strong>message</strong> – is the value of type string mentioning the message/data to be sent to server</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>There is no implicit return, we are saving
+every response in the returned_data list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="apitask.tcp_server_code.start_server_tcp">
+<span class="sig-prename descclassname"><span class="pre">apitask.tcp_server_code.</span></span><span class="sig-name descname"><span class="pre">start_server_tcp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_cmd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/tcp_server_code.html#start_server_tcp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.tcp_server_code.start_server_tcp" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function starts the TCP Server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>executed</strong> (<em>list_cmd is a list</em><em> of </em><em>commands which are to</em>) – </p></li>
+<li><p><strong>server</strong> (<em>by the</em>) – </p></li>
+<li><p><strong>string</strong> (<em>each element must be</em><em> of </em><em>type</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>returns a list of saved responses</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-apitask.udp_client">
+<span id="apitask-udp-client-module"></span><h2>apitask.udp_client module<a class="headerlink" href="#module-apitask.udp_client" title="Permalink to this heading">¶</a></h2>
+<p>This module is the client for the UDP Server</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="apitask.udp_client.start_server_udp">
+<span class="sig-prename descclassname"><span class="pre">apitask.udp_client.</span></span><span class="sig-name descname"><span class="pre">start_server_udp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DATA</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/udp_client.html#start_server_udp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.udp_client.start_server_udp" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function acts as the client for UDP Server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>which</strong> (<em>data is value</em><em> of </em><em>type string</em>) – </p></li>
+<li><p><strong>server</strong> (<em>is to be executed on the</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>This function recieves the data and
+returns the recieved data</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-apitask.udp_server_code">
+<span id="apitask-udp-server-code-module"></span><h2>apitask.udp_server_code module<a class="headerlink" href="#module-apitask.udp_server_code" title="Permalink to this heading">¶</a></h2>
+<p>This module is the UDP Server</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="apitask.udp_server_code.MyUDPHandler">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">apitask.udp_server_code.</span></span><span class="sig-name descname"><span class="pre">MyUDPHandler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/udp_server_code.html#MyUDPHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.udp_server_code.MyUDPHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseRequestHandler</span></code></p>
+<p>This class works similar to the TCP handler class, except that
+self.request consists of a pair of data and client socket, and since
+there is no connection the client address must be given explicitly
+when sending data back via sendto().</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="apitask.udp_server_code.MyUDPHandler.handle">
+<span class="sig-name descname"><span class="pre">handle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/udp_server_code.html#MyUDPHandler.handle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.udp_server_code.MyUDPHandler.handle" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="apitask.udp_server_code.server_udp">
+<span class="sig-prename descclassname"><span class="pre">apitask.udp_server_code.</span></span><span class="sig-name descname"><span class="pre">server_udp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/udp_server_code.html#server_udp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.udp_server_code.server_udp" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function starts the UDP Server and it should be started
+from a different terminal for tests to run successfully</p>
+</dd></dl>
+
+</section>
+<section id="module-apitask.xmlrpc_client_code">
+<span id="apitask-xmlrpc-client-code-module"></span><h2>apitask.xmlrpc_client_code module<a class="headerlink" href="#module-apitask.xmlrpc_client_code" title="Permalink to this heading">¶</a></h2>
+<p>This module is the xmlrpc client</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="apitask.xmlrpc_client_code.xmlrpc_client">
+<span class="sig-prename descclassname"><span class="pre">apitask.xmlrpc_client_code.</span></span><span class="sig-name descname"><span class="pre">xmlrpc_client</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/xmlrpc_client_code.html#xmlrpc_client"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.xmlrpc_client_code.xmlrpc_client" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function acts as the client
+for xmlrpc server</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fibonacci</strong> (<em>data is a list</em><em> of </em><em>elements each</em><em> of </em><em>type int who's</em>) – </p></li>
+<li><p><strong>calculated</strong> (<em>number are to be</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>function returns a list of string with Fibonacci Number for
+each element in the Args</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-apitask.xmlrpc_server_code">
+<span id="apitask-xmlrpc-server-code-module"></span><h2>apitask.xmlrpc_server_code module<a class="headerlink" href="#module-apitask.xmlrpc_server_code" title="Permalink to this heading">¶</a></h2>
+<p>This module is the xmlrpc server</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="apitask.xmlrpc_server_code.fib">
+<span class="sig-prename descclassname"><span class="pre">apitask.xmlrpc_server_code.</span></span><span class="sig-name descname"><span class="pre">fib</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">num</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/xmlrpc_server_code.html#fib"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.xmlrpc_server_code.fib" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is a fibonacci series function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>int</strong> (<em>n is a value</em><em> of </em><em>type</em>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>the function returns the (n)th number of the Fibonacci Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="apitask.xmlrpc_server_code.xmlrpc_server">
+<span class="sig-prename descclassname"><span class="pre">apitask.xmlrpc_server_code.</span></span><span class="sig-name descname"><span class="pre">xmlrpc_server</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/apitask/xmlrpc_server_code.html#xmlrpc_server"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#apitask.xmlrpc_server_code.xmlrpc_server" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function act as the server for xmlrpc_server to
+execute Fibonacci Program from a remote client server</p>
+</dd></dl>
+
+</section>
+<section id="module-apitask">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-apitask" title="Permalink to this heading">¶</a></h2>
+</section>
+</section>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to API Functions’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2023, Alpesh Thamke.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
