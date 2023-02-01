@@ -18,7 +18,7 @@ jobs:
           sudo apt-get update &&
           sudo apt-get install python3-pip -y &&
           pip3 install apiinteractive==0.0.1 &&
-          python3 task/src/apitask/udp_server_code.py & python3 task/src/apitask/xmlrpc_server_code.py & python3 task/test/test_api.py
+          python3 task/src/APITASK/udp_server_code.py & python3 task/src/APITASK/xmlrpc_server_code.py & python3 task/test/test_api.py
 
 workflows:
   my-custom-workflow:
