@@ -1,0 +1,16 @@
+pyproject.toml
+setup.cfg
+src/apiinteractive.egg-info/PKG-INFO
+src/apiinteractive.egg-info/SOURCES.txt
+src/apiinteractive.egg-info/dependency_links.txt
+src/apiinteractive.egg-info/top_level.txt
+src/apitask/__init__.py
+src/apitask/http_api.py
+src/apitask/ip_generator.py
+src/apitask/main.py
+src/apitask/tcp_server_code.py
+src/apitask/udp_client.py
+src/apitask/udp_server_code.py
+src/apitask/xmlrpc_client_code.py
+src/apitask/xmlrpc_server_code.py
+test/test_api.py

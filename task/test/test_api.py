@@ -2,14 +2,9 @@
      of every functionality
 """
 import unittest
-import sys
-sys.path.append("../")
+from apitask import ip_generator, http_api, tcp_server_code ,\
+    xmlrpc_client_code, udp_client
 
-from src.apitask.ip_generator import generate_ip
-from src.apitask.http_api import http_connect
-from src.apitask.tcp_server_code import start_server_tcp
-from src.apitask.udp_client import start_server_udp
-from src.apitask.xmlrpc_client_code import xmlrpc_client
 
 class RangeTest(unittest.TestCase):
     """Tests for generate_ip function
@@ -20,17 +15,17 @@ class RangeTest(unittest.TestCase):
     def test_generate_ip_function_runs(self):
         """This will test if the generate_ip function runs or not
         """
-        generate_ip(self._random_cidr)
+        ip_generator.generate_ip(self._random_cidr)
 
     def test_network_type(self):
         """This will test if the network type is returned correct or not
         """
-        self.assertEqual(generate_ip(self._random_cidr)[0],'IPv4 Network')
+        self.assertEqual(ip_generator.generate_ip(self._random_cidr)[0],'IPv4 Network')
 
     def test_ip_count(self):
         """This will count the number of IP(s) returned
         """
-        self.assertEqual(len(generate_ip(self._random_cidr)[1]),30)
+        self.assertEqual(len(ip_generator.generate_ip(self._random_cidr)[1]),30)
 
 class HTTPConnectTest(unittest.TestCase):
     """Tests for HTTP Connection
@@ -47,20 +42,20 @@ class HTTPConnectTest(unittest.TestCase):
     def test_http_function_runs(self):
         """This will check if the api_http_connect function runs or not
         """
-        http_connect(self._url,self._data,self._method,
+        http_api.http_connect(self._url,self._data,self._method,
             self._params,self._data_size)
 
     def test_http_correct_data_size(self):
         """This will test if the size of data returned is correct or not
         """
-        self.assertEqual(len(http_connect(self._url,
+        self.assertEqual(len(http_api.http_connect(self._url,
             self._data,self._method,self._params,self._data_size)),
                 self._data_size)
 
     def test_http_correct_return_type(self):
         """This will test if the returned data is decoded or not
         """
-        self.assertEqual(type(http_connect(self._url,self._data,
+        self.assertEqual(type(http_api.http_connect(self._url,self._data,
             self._method,self._params,self._data_size)),type('string'))
 
     def test_http_incorrect_url(self):
@@ -68,7 +63,7 @@ class HTTPConnectTest(unittest.TestCase):
              incorrect url is provided
         """
         with self.assertRaises(ValueError):
-            http_connect("incorrect_url",self._data,self._method,
+            http_api.http_connect("incorrect_url",self._data,self._method,
                 self._params,self._data_size)
 
 class ServerTCPTest(unittest.TestCase):
@@ -82,12 +77,12 @@ class ServerTCPTest(unittest.TestCase):
     def test_server_tcp_runs(self):
         """Testing whether start_server function runs or not
         """
-        start_server_tcp(self._list_cmd)
+        tcp_server_code.start_server_tcp(self._list_cmd)
 
     def test_server_tcp_return_data(self):
         """Test for the size of returned data
         """
-        self.assertEqual(len(start_server_tcp(self._list_cmd)),
+        self.assertEqual(len(tcp_server_code.start_server_tcp(self._list_cmd)),
             len(self._list_cmd))
 
 class ServerUDPTest(unittest.TestCase):
@@ -101,17 +96,17 @@ class ServerUDPTest(unittest.TestCase):
     def test_server_udp_runs(self):
         """Testing whether start_server function runs or not
         """
-        start_server_udp(self._cmd)
+        udp_client.start_server_udp(self._cmd)
 
     def test_server_udp_return_data(self):
         """Test for the correctness of returned data
         """
-        self.assertEqual(start_server_udp(self._cmd),self._cmd.upper())
+        self.assertEqual(udp_client.start_server_udp(self._cmd),self._cmd.upper())
 
     def test_server_udp_return_size(self):
         """Test for the correct size of the returned data
         """
-        self.assertEqual(len(start_server_udp(self._cmd)),len(self._cmd))
+        self.assertEqual(len(udp_client.start_server_udp(self._cmd)),len(self._cmd))
 
 class XMLRPCTest(unittest.TestCase):
     """Tests for running python program on remote server
@@ -124,17 +119,17 @@ class XMLRPCTest(unittest.TestCase):
     def test_xmlrpc_client_runs(self):
         """Test wether xmlrpc_client function runs or not
         """
-        xmlrpc_client(self._data)
+        xmlrpc_client_code.xmlrpc_client(self._data)
 
     def test_xmlrpc_client_output_size(self):
         """Test wether the returned output size is as expected or not
         """
-        self.assertEqual(len(xmlrpc_client(self._data)),len(self._data))
+        self.assertEqual(len(xmlrpc_client_code.xmlrpc_client(self._data)),len(self._data))
 
     def test_xmlrpc_client_correct_output(self):
         """Test for the correctness of the output
         """
-        self.assertEqual(xmlrpc_client(self._data)[6],
+        self.assertEqual(xmlrpc_client_code.xmlrpc_client(self._data)[6],
             '11 number in Fibonacci Series: 89')
 
 if __name__ == '__main__':
